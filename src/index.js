@@ -49,8 +49,10 @@ var files = filewalk(currentPath);
 console.log("files length = " + files.length);
 files.map(record => {
   log(chalk.keyword("orange")(record.file));
+  return false;
 });
 
+console.log("test");
 const fileBuffer = fs.readFileSync(currentPath + "/" + files[0].file);
 const charsetMatch = detectCharacterEncoding(fileBuffer);
 console.info(charsetMatch);
